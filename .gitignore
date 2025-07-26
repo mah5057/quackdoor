@@ -1,0 +1,4 @@
+__pycache__
+hatchery/*
+!hatchery/.gitkeep
+.DS_Store
