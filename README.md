@@ -4,7 +4,7 @@ Honk Honk!
 
 Quackdoor is python code that will generate a duckyscript that will execute arbitrary python code on the target machine (macos). Best used to create payloads for flipper zero's BadUSB app.
 
-Limitations:
+Limitations & Considerations:
 - Target system must have python3 installed
 - Everything must be in one file (When base64 encoding the eggsecutor, other local modules will not be compiled. External   libraries are OK as they will be installed globally on the target system as part of the payload.)
 - Any credz in the eggsecutor will be recoverable on target system (hatch adds a directive to remove zsh history, but that's probably not enough)
