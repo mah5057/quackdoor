@@ -16,8 +16,8 @@ Usage:
 - `cd quackdoor`
 - Write your python payload at `quackdoor/eggsecutor/eggsecutor.py` (skip this step for hello world)
 - `make hatch`
-- duckyscript to execute your eggsecutor code will be in the `quackdoor/hatchery/` directory
-- Upload to flipper zero as payload for BadUSB app
+- The duckyscript to execute your eggsecutor code will now be in the `quackdoor/hatchery/` directory
+- Upload the output duckyscript payload to flipper zero as a payload for BadUSB app
 
 ⚠️ Disclaimer:
 This software is provided under the MIT License and is intended for educational and authorized testing purposes only. The author is not responsible for any misuse, damage, or legal consequences resulting from the use of this code.
