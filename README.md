@@ -2,7 +2,7 @@
 
 Honk Honk!
 
-Python code to generate a duckyscript that will execute arbitrary python code on the target machine (macos). Best used to create payloads for flipper zero's BadUSB app.
+Quackdoor is python code that will generate a duckyscript that will execute arbitrary python code on the target machine (macos). Best used to create payloads for flipper zero's BadUSB app.
 
 Limitations:
 - Target system must have python3 installed
