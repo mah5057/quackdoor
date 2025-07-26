@@ -3,7 +3,7 @@ hatch.py
 
 author: mah5057
 
-Creates ducky/{payload}.txt
+Creates hatchery/{payload}.txt
 
 Considerations:
     - depending on external dependencies, you might have
