@@ -15,6 +15,7 @@ Usage:
 - `git clone git@github.com:mah5057/quackdoor.git`
 - `cd quackdoor`
 - Write your python payload at `quackdoor/eggsecutor/eggsecutor.py` (skip this step for hello world)
+- IF you are using external dependencies, list them by name [here](https://github.com/mah5057/quackdoor/blob/main/quackdoor/incubator/hatch.py#L18) and make sure that [PIP_TIME](https://github.com/mah5057/quackdoor/blob/main/quackdoor/incubator/hatch.py#L17) is long enough for `pip install` to finish.
 - `make hatch`
 - The duckyscript to execute your eggsecutor code will now be in the `quackdoor/hatchery/` directory
 - Upload the output duckyscript payload to flipper zero as a payload for the BadUSB app
