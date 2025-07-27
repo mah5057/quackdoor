@@ -24,7 +24,6 @@ def flatten_to_base64_exec(input_path):
         code = f.read()
 
     b64 = base64.b64encode(code.encode()).decode()
-    # Use single quotes on outside, double quotes inside — safe for zsh
     return f"python3 -c 'import base64; exec(base64.b64decode(\"{b64}\").decode())'"
 
 flattened_b64 = flatten_to_base64_exec("quackdoor/eggsecutor/eggsecutor.py")
