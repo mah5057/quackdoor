@@ -12,7 +12,6 @@ Considerations:
 '''
 
 import base64
-import subprocess
 
 PAYLOAD_NAME = "payload.txt" # set custom payload name here
 PIP_TIME = 5000              # time to wait after invoking pip (ms), only necessary for external dependencies
