@@ -1,4 +1,19 @@
-.PHONY: hatch
+.PHONY: venv test clean lint format ci-tests
 
-hatch:
-	python3 quackdoor/incubator/hatch.py
+venv:
+	python -m venv .venv
+	. .venv/bin/activate && pip install -r requirements.txt
+
+test: venv
+	.venv/bin/pytest --cov=quackdoor --cov-report=term-missing
+
+clean:
+	rm -rf .venv
+
+lint: venv
+	.venv/bin/black --check . && .venv/bin/mypy quackdoor && .venv/bin/pylint quackdoor
+
+format: venv
+	.venv/bin/black .
+
+ci-tests: venv lint test
