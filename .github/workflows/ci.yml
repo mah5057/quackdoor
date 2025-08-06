@@ -26,3 +26,7 @@ jobs:
       - name: Run lint and tests
         run: make ci-tests
 
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: coverage.xml

@@ -5,7 +5,7 @@ venv:
 	. .venv/bin/activate && pip install -r requirements.txt
 
 test: venv
-	.venv/bin/pytest --cov=quackdoor --cov-report=term-missing
+	.venv/bin/pytest --cov=quackdoor --cov-report=term-missing --cov-report=xml
 
 clean:
 	rm -rf .venv

@@ -1,5 +1,8 @@
 # 🦆 Quackdoor
 
+![CI](https://github.com/your-org/quackdoor/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/gh/your-org/quackdoor/branch/main/graph/badge.svg)](https://codecov.io/gh/your-org/quackdoor)
+
 **Honk Honk!**  
 Quackdoor is a CLI tool written in Python that generates DuckyScript to execute arbitrary Python code on a target machine. It is best used for crafting payloads for [Flipper Zero's BadUSB](https://docs.flipperzero.one/badusb) app.
 
