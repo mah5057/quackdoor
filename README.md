@@ -1,25 +1,92 @@
-# quackdoor
+# 🦆 Quackdoor
 
-Honk Honk!
+![CI](https://github.com/your-org/quackdoor/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/gh/your-org/quackdoor/branch/main/graph/badge.svg)](https://codecov.io/gh/your-org/quackdoor)
 
-Quackdoor is python code that will generate a duckyscript that will execute arbitrary python code on the target machine (macos). Best used to create payloads for flipper zero's BadUSB app.
+**Honk Honk!**  
+Quackdoor is a CLI tool written in Python that generates DuckyScript to execute arbitrary Python code on a target machine. It is best used for crafting payloads for [Flipper Zero's BadUSB](https://docs.flipperzero.one/badusb) app.
 
-Limitations & Considerations:
-- Target system must have python3 installed
-- All local python code must be in one file ([eggsecutor.py](https://github.com/mah5057/quackdoor/blob/main/quackdoor/eggsecutor/eggsecutor.py)) as when base64 encoding the eggsecutor, other local modules will not be compiled. External libraries are OK as they will be installed globally on the target system as part of the payload.
-- Any sensitive information written in the eggsecutor may be recoverable on the target system 
-- Assumes zsh on target shell
-- Assumes standard macos filesystem conventions
+---
 
-Usage:
-1. `git clone git@github.com:mah5057/quackdoor.git`
-2. `cd quackdoor`
-3. Write your python payload at `quackdoor/eggsecutor/eggsecutor.py` (skip this step for hello world)
-4. IF you are using external dependencies, list them by name [here](https://github.com/mah5057/quackdoor/blob/main/quackdoor/incubator/hatch.py#L18) and make sure that [PIP_TIME](https://github.com/mah5057/quackdoor/blob/main/quackdoor/incubator/hatch.py#L17) is long enough for `pip install` to finish.
-5. `make hatch`
-6. The duckyscript to execute your eggsecutor code will now be in the `quackdoor/hatchery/` directory
-7. Upload the output duckyscript payload to flipper zero as a payload for the BadUSB app
+## 🔧 Features
 
-⚠️ Disclaimer:
-This software is provided under the MIT License and is intended for educational and authorized testing purposes only. The author is not responsible for any misuse, damage, or legal consequences resulting from the use of this code.
+- Converts Python scripts into executable DuckyScript payloads
+- Supports external Python libraries (via `-r` and `-p` flags)
+- Tailored for use with macOS and Zsh environments
+- Ideal for authorized security testing and educational purposes
 
+---
+
+## ⚠️ Limitations & Considerations
+
+- The target system **must have Python 3** installed
+- All local Python code must reside in **a single file**; other local modules will not be compiled into the payload
+- **External libraries are supported** and will be installed globally on the target via pip
+- Payload may leave **recoverable traces** on the target system—use with caution
+- Assumes the **Zsh shell** and **standard macOS filesystem** on the target
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository:
+
+```zsh
+git clone https://github.com/your-org/quackdoor.git
+```
+
+Generate a payload:
+
+```zsh
+cd quackdoor
+python3 quackdoor.py -i your_script.py -o output_file_name.txt
+```
+
+Optional flags for additional customization:
+- `-r dependency1 dependency2` – Provide a space delimited list of dependencies to install
+- `-p` – Pip-time, or how long for the resulting DuckyScript to wait after running pip install (if there are dependencies provided)
+
+---
+
+## ✅ Development Best Practices
+
+We follow the **GitHub Flow** for all development work:
+
+1. Create a new branch from `main`:
+   ```zsh
+   git checkout -b feature/my-feature
+   ```
+
+2. Make your changes and commit them:
+   ```zsh
+   git commit -m "#123 Brief description of the change"
+   ```
+
+   - Always reference the GitHub issue number with a `#`, e.g. `#42`
+   - Write clear and descriptive commit messages
+
+3. Push your branch:
+   ```zsh
+   git push origin feature/my-feature
+   ```
+
+4. Open a Pull Request targeting the `main` branch
+
+5. Request review and ensure all checks pass
+
+6. Once approved, squash and merge
+
+---
+
+## 📄 License
+
+MIT License. See [LICENSE](./LICENSE) for details.
+
+---
+
+## 🛡️ Disclaimer
+
+This software is provided for **educational and authorized testing purposes only**.  
+The author is not responsible for **misuse, damage, or legal consequences** resulting from the use of this tool.
+
+Use responsibly. Honk responsibly. 🦆
