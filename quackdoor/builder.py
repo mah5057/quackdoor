@@ -36,7 +36,7 @@ def build_ducky_script(
         str: A complete DuckyScript payload as a string.
     """
     pip_line = (
-        f"STRING pip install {" ".join(requirements)}\nENTER\nDELAY {pip_time}\n"
+        f"STRING pip install {' '.join(requirements)}\nENTER\nDELAY {pip_time}\n"
         if requirements
         else ""
     )
