@@ -10,10 +10,7 @@ DELAY 1500
 STRING cd ~
 ENTER
 DELAY 1000
-STRING pip install requests
-ENTER
-DELAY 6000
-STRING python3 -c "import base64; exec(base64.b64decode('aW1wb3J0IHJlcXVlc3RzCgpwcmludChyZXF1ZXN0cy5nZXQoImh0dHBzOi8vd3d3Lmdvb2dsZS5jb20iKSk='))"
+STRING python3 -c "import base64; exec(base64.b64decode('cHJpbnQoIkhlbGxvLCB3b3JsZCEiKQ=='))"
 ENTER
 DELAY 2000
 STRING clear
