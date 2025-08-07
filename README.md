@@ -78,6 +78,51 @@ We follow the **GitHub Flow** for all development work:
 
 ---
 
+📦 Release Process
+
+1. Bump the version in pyproject.toml
+2. Edit the version field to the new release number:
+
+```toml
+version = "0.1.1"
+```
+Commit the change:
+```zsh
+git add pyproject.toml
+git commit -m "Bump version to 0.1.1"
+```
+
+3. Tag the release
+Tag should match the version in pyproject.toml exactly, prefixed with v:
+```zsh
+git tag v0.1.1
+git push origin v0.1.1
+```
+
+Create the GitHub Release
+
+1. Go to the GitHub "Releases" page
+
+2. Click "Draft a new release"
+
+3. Select the tag you just pushed
+
+4. Fill in release notes. Include a changelog with a compare url like:
+
+```zsh
+https://github.com/mah5057/quackdoor/compare/v0.1.0...v0.1.1
+```
+
+5. Click "Publish release"
+
+Publishing to PyPI
+
+The CI workflow will automatically build and publish the new version to PyPI once the GitHub release is published.
+
+
+
+---
+
 ## 📄 License
 
 MIT License. See [LICENSE](./LICENSE) for details.
