@@ -1,4 +1,5 @@
-import os
+from pathlib import Path
+
 import subprocess
 import sys
 
@@ -64,25 +65,20 @@ def test_main_exception(mock_read, capsys):
     assert "[!] File not found" in out
 
 
-def test_main_entrypoint(monkeypatch, tmp_path):
-    input_file = tmp_path / "script.py"
-    output_file = tmp_path / "out.txt"
-
+def test_main_entrypoint(tmp_path):
+    input_file = tmp_path / "input.py"
+    output_file = tmp_path / "output.txt"
     input_file.write_text("print('hello')")
 
-    # Build the command to invoke the script directly
-    script_path = os.path.join(
-        os.path.dirname(__file__), "..", "quackdoor", "__main__.py"
-    )
+    # 🛠 FIXED: Resolve absolute path to __main__.py
+    script_path = (Path(__file__).parent.parent / "quackdoor" / "__main__.py").resolve()
+
     result = subprocess.run(
-        [sys.executable, script_path, str(input_file), "-o", str(output_file)],
+        [sys.executable, str(script_path), str(input_file), "-o", str(output_file)],
         capture_output=True,
         text=True,
     )
 
-    # Check the process finished successfully
     assert result.returncode == 0
-    assert f"[+] DuckyScript written to {output_file}" in result.stdout
-
-    # Confirm output file was created
     assert output_file.exists()
+    assert f"[+] DuckyScript written to {output_file}" in result.stdout

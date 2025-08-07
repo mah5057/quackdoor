@@ -1,7 +1,6 @@
 __pycache__
-hatchery/*
-!hatchery/.gitkeep
 .DS_Store
 .pytest_cache/*
 __pycache__
 .coverage
+coverage.xml
