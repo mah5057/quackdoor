@@ -81,7 +81,7 @@ def test_main_entrypoint(tmp_path):
         [sys.executable, str(script_path), str(input_file), "-o", str(output_file)],
         capture_output=True,
         text=True,
-        env=env,  # ✅ Add the fixed environment here
+        env=env,
     )
 
     assert result.returncode == 0
