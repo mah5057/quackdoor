@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import os
 import subprocess
 import sys
 
@@ -70,13 +71,17 @@ def test_main_entrypoint(tmp_path):
     output_file = tmp_path / "output.txt"
     input_file.write_text("print('hello')")
 
-    # 🛠 FIXED: Resolve absolute path to __main__.py
     script_path = (Path(__file__).parent.parent / "quackdoor" / "__main__.py").resolve()
+    project_root = Path(__file__).parent.parent.resolve()
+
+    env = os.environ.copy()
+    env["PYTHONPATH"] = f"{project_root}:{env.get('PYTHONPATH', '')}"
 
     result = subprocess.run(
         [sys.executable, str(script_path), str(input_file), "-o", str(output_file)],
         capture_output=True,
         text=True,
+        env=env,  # ✅ Add the fixed environment here
     )
 
     assert result.returncode == 0
