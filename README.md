@@ -10,7 +10,7 @@ Quackdoor is a CLI tool written in Python that generates DuckyScript to execute 
 
 ## 🔧 Features
 
-- Converts Python scripts into executable DuckyScript payloads
+- Embeds Python scripts into an executable DuckyScript
 - Supports external Python libraries (via `-r` and `-p` flags)
 - Tailored for use with macOS and Zsh environments
 - Ideal for authorized security testing and educational purposes
